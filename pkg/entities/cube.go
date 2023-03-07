@@ -3,9 +3,10 @@ package entities
 import (
 	"fcg/trab/pkg/camera"
 	"fcg/trab/pkg/graphics"
+	"fcg/trab/pkg/matrix"
 
+	"github.com/go-gl/gl/v3.3-core/gl"
 	"github.com/go-gl/mathgl/mgl32"
-	"github.com/neclepsio/gl/v3.3-core/gl"
 )
 
 var vertexArrayID uint32 = 0
@@ -27,11 +28,11 @@ func (c *Cube) Draw(cam camera.Camera) {
 		vertexArrayID = buildTriangles()
 	}
 
-	model := mgl32.Translate3D(c.Position.X(), c.Position.Y(), c.Position.Z()).
-		Mul4(mgl32.Scale3D(c.Scale.X(), c.Scale.Y(), c.Scale.Z())).
-		Mul4(mgl32.HomogRotate3DX(c.Rotation.X())).
-		Mul4(mgl32.HomogRotate3DY(c.Rotation.Y())).
-		Mul4(mgl32.HomogRotate3DZ(c.Rotation.Z()))
+	model := matrix.Translate(c.Position).
+		Mul4(matrix.Scale(c.Scale)).
+		Mul4(matrix.RotateX(c.Rotation.X())).
+		Mul4(matrix.RotateY(c.Rotation.Y())).
+		Mul4(matrix.RotateZ(c.Rotation.Z()))
 
 	graphics.DrawElements(model, cam.GetMatrix(), vertexArrayID, gl.TRIANGLES, 36, gl.UNSIGNED_INT)
 }

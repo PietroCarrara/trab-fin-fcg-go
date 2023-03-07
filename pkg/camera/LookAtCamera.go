@@ -1,6 +1,8 @@
 package camera
 
 import (
+	"fcg/trab/pkg/matrix"
+
 	"github.com/chewxy/math32"
 	"github.com/go-gl/mathgl/mgl32"
 )
@@ -31,5 +33,5 @@ func (l *LookAtCamera) GetMatrix() mgl32.Mat4 {
 	camView := camFocus.Sub(camPos)
 	camUp := mgl32.Vec3{0, 1, 0}
 
-	return mgl32.LookAtV(camPos, camView, camUp)
+	return matrix.CameraView(camPos, camView, camUp)
 }
