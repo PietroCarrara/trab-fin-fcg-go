@@ -8,7 +8,6 @@ import (
 
 	"github.com/go-gl/gl/v3.3-core/gl"
 	"github.com/go-gl/glfw/v3.3/glfw"
-	"github.com/go-gl/mathgl/mgl32"
 )
 
 func init() {
@@ -46,13 +45,10 @@ func main() {
 	}
 
 	cam := camera.LookAtCamera{
-		Distance: 0.01,
+		Distance: 3.5,
 	}
 
-	c1 := entities.Cube{
-		// Position: mgl32.Vec3{1, 1, 1},
-		Scale: mgl32.Vec3{0.05, 0.05, 0.05},
-	}
+	c1 := entities.MakeCube()
 
 	for !window.ShouldClose() {
 		// Update

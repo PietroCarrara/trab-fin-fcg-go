@@ -1,8 +1,6 @@
 package graphics
 
 import (
-	"fcg/trab/pkg/matrix"
-
 	"github.com/go-gl/gl/v3.3-core/gl"
 	"github.com/go-gl/mathgl/mgl32"
 )
@@ -15,13 +13,10 @@ var viewUniform int32
 var projectionUniform int32
 
 var fov float32 = 3.141592 / 3
-var near float32 = -0.1
-var far float32 = -10
+var near float32 = 0.01
+var far float32 = 10
 
-var perspectiveProjection mgl32.Mat4 = matrix.Perspective(fov, 1, near, far)
-
-// var perspectiveProjection mgl32.Mat4 = mgl32.Ortho(-480/2, 480/2, -480/2, 480/2, near, far)
-// var perspectiveProjection mgl32.Mat4 = mgl32.Perspective(fov, 1, 0.1, 40)
+var perspectiveProjection mgl32.Mat4 = mgl32.Perspective(fov, 1, near, far)
 
 func Init() error {
 	var err error
