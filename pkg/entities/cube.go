@@ -4,8 +4,8 @@ import (
 	"fcg/trab/pkg/camera"
 	"fcg/trab/pkg/graphics"
 
-	"github.com/go-gl/gl/v3.3-core/gl"
 	"github.com/go-gl/mathgl/mgl32"
+	"github.com/neclepsio/gl/v3.3-core/gl"
 )
 
 var vertexArrayID uint32 = 0

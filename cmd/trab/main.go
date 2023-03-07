@@ -6,8 +6,8 @@ import (
 	"fcg/trab/pkg/graphics"
 	"runtime"
 
-	"github.com/go-gl/gl/v3.3-core/gl"
 	"github.com/go-gl/glfw/v3.3/glfw"
+	"github.com/neclepsio/gl/v3.3-core/gl"
 )
 
 func init() {

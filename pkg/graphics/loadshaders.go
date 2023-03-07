@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/go-gl/gl/v3.3-core/gl"
+	"github.com/neclepsio/gl/v3.3-core/gl"
 )
 
 func loadShaders() (uint32, error) {
